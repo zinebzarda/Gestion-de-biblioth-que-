@@ -129,13 +129,5 @@ public class Book {
         }
     }
 
-    //Add Borrower
-    public void AddBorrower(Student Borrower) {
-        this.Borrower = Borrower;
-    }
 
-    //Remove Borrower
-    public void RemoveBorrower(Student Borrower) {
-        this.Borrower = null;
-    }
 }
