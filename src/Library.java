@@ -64,6 +64,87 @@ public class Library {
             }
         }
     }
+    //-------------------------------Display Students-------------------------------------
+    public void displayStudents(){
+        for(Student s : LibraryStudents){
+            if(s!=null){
+                System.out.print(ANSI_PURPLE);
+                System.out.println(s.toString());
+                if(s.getBooks()!=null){
+                    for(Book b : s.getBooks()){
+                        if(b!=null){
+                            System.out.println(b.toString());
+                        }
+                    }
+                }
+            }
+        }
     }
+
+    //-------------------------------Remove Book-------------------------------------
+//    public void removeBook() {
+//        System.out.print(ANSI_RED+"Insert Title");
+//        String t = scanner.next();
+//        LibraryBooks.removeIf(b -> t.equals(b.getTitle()));
+//
+//
+//    }
+//-------------------------------Search Book-------------------------------------
+    public void searchBook() {
+        int n ;
+        System.out.print(ANSI_GREEN+"Choose one option :\n| Search by Title[1]       |  Search by Writer[2]\n| Search by Number ISBN[3] |  Search by Number Borrower ID[4]\n Exit[5]\n:");
+        n = scanner.nextInt();
+        switch (n) {
+            case 1:
+                System.out.print("Insert Title:");
+                String t = scanner.next();
+                for (Book b : LibraryBooks) {
+                    if (b != null) {
+                        if (t.equals(b.getTitle())) {
+                            System.out.println(b.toString());
+                        }
+                    }
+                }
+                break;
+            case 2:
+                System.out.print("Insert Writer:");
+                String w = scanner.next();
+                for (Book b : LibraryBooks) {
+                    if (b != null) {
+                        if (w.equals(b.getWriter())) {
+                            System.out.println(b.toString());
+                        }
+                    }
+                }
+                break;
+            case 3:
+                System.out.print("Insert ISBN:");
+                String i = scanner.next();
+                for (Book b : LibraryBooks) {
+                    if (b != null) {
+                        if (i.equals(b.getISBN())) {
+                            System.out.println(b.toString());
+                        }
+                    }
+                }
+                break;
+            case 4:
+                System.out.print("Insert  Browwer ID:");
+                int B = scanner.nextInt();
+                for (Book b : LibraryBooks) {
+                    if (b != null) {
+                        if (B == b.getBorrower().getId()) {
+                            System.out.println(b.toString());
+                        }
+                    }
+                }
+                break;
+            default:
+                System.out.println(ANSI_RED+"!!!!This option is not available!!!");
+                break;
+        }
+    }
+
+}
 
 
