@@ -56,9 +56,14 @@ public class Library {
         LibraryStudents.add(S);
     }
 
-
-
-
+    //-------------------------------Display Books-------------------------------------
+    public void displayBooks(){
+        for(Book b : LibraryBooks){
+            if(b!=null){
+                System.out.println(b.toString());
+            }
+        }
+    }
     }
 
 
