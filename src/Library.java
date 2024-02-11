@@ -145,6 +145,74 @@ public class Library {
         }
     }
 
+    //-------------------------------Search Student-------------------------------------
+    public void searchStudent() {
+        System.out.print(ANSI_GREEN+"Choose one option:\n| Search by ID[1]                  |  Search by Nom[2]\n| Search by Prenom[3]              |  Search by  Adresse[4]\n| Search by Borrowed book Title[5] |  Exit [6]\n: ");
+        int n = scanner.nextInt();
+        switch (n) {
+            case 1:
+                System.out.print("Insert ID:");
+                int t = scanner.nextInt();
+                for (Student s : LibraryStudents) {
+                    if (s != null) {
+                        if (t == s.getId()) {
+                            System.out.println(s.toString());
+                        }
+                    }
+                }
+                break;
+            case 2:
+                System.out.print("Insert Nom:");
+                String N = scanner.next();
+                for (Student s : LibraryStudents) {
+                    if (s != null) {
+                        if (N.equals(s.getNom())) {
+                            System.out.println(s.toString());
+                        }
+                    }
+                }
+                break;
+            case 3:
+                System.out.print("Insert  Prenom:");
+                String p = scanner.next();
+                for (Student s : LibraryStudents) {
+                    if (s != null) {
+                        if (p.equals(s.getPrenom())) {
+                            System.out.println(s.toString());
+                        }
+                    }
+                }
+                break;
+            case 4:
+                System.out.print("Insert Adresse:");
+                String a = scanner.next();
+                for (Student s : LibraryStudents) {
+                    if (s != null) {
+                        if (a.equals(s.getAdresse())) {
+                            System.out.println(s.toString());
+                        }
+                    }
+                }
+                break;
+            case 5:
+                System.out.print("Insert  Borrowed Book Title:");
+                String b = scanner.next();
+                for (Student s : LibraryStudents) {
+                    if (s != null) {
+                        for (Book B : s.getBooks()) {
+                            if (b.equals(B.getTitle())) {
+                                System.out.println(s.toString());
+                            }
+                        }
+                    }
+                }
+                break;
+            default:
+                System.out.println(ANSI_RED+"!!!!This option is not available!!!");
+                break;
+        }
+    }
+
 }
 
 
