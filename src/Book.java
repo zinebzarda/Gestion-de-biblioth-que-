@@ -9,7 +9,7 @@ public class Book {
     private String ISBN;
     private LocalDate DatePublication;
     //borrower
-    private Student Borrower ;
+    private Student Borrower;
     //Scanner
     Scanner scanner = new Scanner(System.in);
 
@@ -73,7 +73,7 @@ public class Book {
     public String toString() {
         if (Borrower != null) {
             return (
-                    "Title: " +
+                    "| Title: " +
                             Title +
                             "| Writter: " +
                             Writer +
@@ -81,8 +81,8 @@ public class Book {
                             ISBN +
                             "| Date Of Publication: " +
                             DatePublication +
-                            "| Borrower:" +
-                            Borrower
+                            "\n| Borrower:" +
+                            Borrower.toString()
             );
         }
         return (
@@ -112,7 +112,8 @@ public class Book {
             // Borrower = scanner.next();
         }
         int n=1;
-        Loop:while (n == 1) {
+        Loop:
+        while (n == 1) {
             //Gestion Error date invalid
             try {
                 System.out.print("Date Publication (YYYY-MM-DD):");
@@ -124,10 +125,17 @@ public class Book {
                 );
                 continue Loop;
             }
-            ;
             n = 0;
         }
     }
 
+    //Add Borrower
+    public void AddBorrower(Student Borrower) {
+        this.Borrower = Borrower;
+    }
 
+    //Remove Borrower
+    public void RemoveBorrower(Student Borrower) {
+        this.Borrower = null;
+    }
 }
