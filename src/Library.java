@@ -81,14 +81,8 @@ public class Library {
         }
     }
 
-    //-------------------------------Remove Book-------------------------------------
-//    public void removeBook() {
-//        System.out.print(ANSI_RED+"Insert Title");
-//        String t = scanner.next();
-//        LibraryBooks.removeIf(b -> t.equals(b.getTitle()));
-//
-//
-//    }
+
+
 //-------------------------------Search Book-------------------------------------
     public void searchBook() {
         int n ;
@@ -212,7 +206,26 @@ public class Library {
                 break;
         }
     }
+    //-------------------------------Remove Book-------------------------------------
+    public void removeBook() {
+        System.out.print(ANSI_RED + "Insert Title:");
+        String t = scanner.next();
+        boolean removed = false;
 
+        for (Book b : LibraryBooks) {
+            if (b != null && t.equals(b.getTitle())) {
+                LibraryBooks.remove(b);
+                removed = true;
+                break;
+            }
+        }
+
+        if (removed) {
+            System.out.println("Book removed successfully.");
+        } else {
+            System.out.println("No book with the given title found.");
+        }
+    }
 }
 
 
