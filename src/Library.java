@@ -295,6 +295,30 @@ public class Library {
         }
     }
 
+    //-------------------------------Remove Book From Student-------------------------------------
+    public void RemoveBookForStudent(){
+        System.out.print(ANSI_RED+"Insert ID Student:");
+        int I = scanner.nextInt();
+        System.out.print("Insert Book Title:");
+        String T = scanner.next();
+        for (Student s : LibraryStudents) {
+            if (s != null) {
+                if (I == s.getId()) {
+                    for(Book b : LibraryBooks){
+                        if(b!= null){
+                            if (T.equals(b.getTitle())) {
+                                if(s.getBooks()!=null){
+                                    s.getBooks().remove(b);
+                                    b.RemoveBorrower(s);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
 }
 
