@@ -111,21 +111,14 @@ public class Book {
             System.out.print("Borrower ID:");
             // Borrower = scanner.next();
         }
-        int n=1;
-        Loop:
-        while (n == 1) {
-            //Gestion Error date invalid
+        while (DatePublication == null) {
             try {
-                System.out.print("Date Publication (YYYY-MM-DD):");
+                System.out.print("Date Publication (YYYY-MM-DD): ");
                 String date = scanner.next();
-                LocalDate DatePublication = LocalDate.parse(date);
+                DatePublication = LocalDate.parse(date);
             } catch (DateTimeParseException e) {
-                System.out.println(
-                        "Invalid date format. Please enter date in YYYY-MM-DD format."
-                );
-                continue Loop;
+                System.out.println("Invalid date format. Please enter date in YYYY-MM-DD format.");
             }
-            n = 0;
         }
     }
 

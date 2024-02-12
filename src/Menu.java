@@ -1,3 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -14,20 +19,24 @@ public class Menu {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     public static void main(String[] args){
+
         Scanner scanner = new Scanner(System.in);
         Library library = new Library();
+
         int Exit=0;
-        System.out.println(ANSI_CYAN+"          ###########  ####      ##  ##########  ########## ");
-        System.out.println("          ##           ## ##     ##  ##      ##  ##      ## ");
-        System.out.println("          ##           ##  ##    ##  ##      ##  ##      ## ");
-        System.out.println("          ###########  ##   ##   ##  ##########  ########## ");
-        System.out.println("          ##           ##    ##  ##  ##      ##  ##      ## ");
-        System.out.println("          ##           ##     ## ##  ##      ##  ##      ## ");
-        System.out.println("          ###########  ##      ####  ##      ##  ##      ## ");
+        System.out.println(ANSI_CYAN+"########################################################################");
+        System.out.println("##        ###########  ####      ##  ##########  ##########          ## ");
+        System.out.println("##        ##           ## ##     ##  ##      ##  ##      ##          ## ");
+        System.out.println("##        ##           ##  ##    ##  ##      ##  ##      ##          ## ");
+        System.out.println("##        ###########  ##   ##   ##  ##########  ##########          ## ");
+        System.out.println("##        ##           ##    ##  ##  ##      ##  ##      ##          ## ");
+        System.out.println("##        ##           ##     ## ##  ##      ##  ##      ##          ## ");
+        System.out.println("##        ###########  ##      ####  ##      ##  ##      ##          ## ");
+        System.out.println("########################################################################");
         loop:while(Exit==0){
             int Choose;
             System.out.println(ANSI_GREEN+"***************************************************************");
-            System.out.println("*****************Choose one option:****************************");
+            System.out.println("**************** CHOOSE ONE OPTION  ***************************");
             System.out.println(ANSI_YELLOW+"**     Add Student[1]        |       Add Book[2]             **");
             System.out.println(ANSI_PURPLE+"** Display All Students[3]   |   Display All Books[4]        **");
             System.out.println(ANSI_GREEN+"**    Search Student[5]      |      Search Book[6]           **");
@@ -45,13 +54,41 @@ public class Menu {
                 case 2:
                     library.addBook();
                     break;
+                case 3:
+                    library.displayStudents();
+                    break;
                 case 4:
-                    library.displayBooks();
+                    library.displayBooks();;
+                    break;
+                case 5:
+                    library.searchStudent();;
+                    break;
+                case 6:
+                    library.searchBook();
+                    break;
+                case 7:
+                    library.removeStudent();
+                    break;
+                case 8:
+                    library.removeBook();
+                    break;
+                case 9:
+                    library.addBookForStudent();;
+                    break;
+                case 10:
+                   // library.RemoveBookForStudent();
+                    break;
+                case 11:
+                    library.ModifyStudent();
+                    break;
+                case 12:
+                    library.ModifyBook();
                     break;
                 case 13:
                     Exit=1;
                     break;
                 default:
+                    System.out.println(ANSI_RED+"!!!!This option is not available!!!");
                     break;
             }
 
