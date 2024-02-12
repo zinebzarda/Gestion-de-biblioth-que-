@@ -76,7 +76,7 @@ public class Menu {
                     library.addBookForStudent();;
                     break;
                 case 10:
-                   // library.RemoveBookForStudent();
+                    library.RemoveBookForStudent();
                     break;
                 case 11:
                     library.ModifyStudent();
