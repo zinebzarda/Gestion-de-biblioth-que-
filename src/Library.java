@@ -226,6 +226,76 @@ public class Library {
             System.out.println("No book with the given title found.");
         }
     }
+
+    //-------------------------------Remove Student-------------------------------------
+    public void removeStudent() {
+        System.out.print(ANSI_RED+"Insert ID Student:");
+        int I = scanner.nextInt();
+        boolean removed = false;
+        for (Student s : LibraryStudents) {
+            if (s != null && I == s.getId()) {
+                    LibraryStudents.remove(s);
+                    removed = true;
+                    break;
+            }
+        }
+            if (removed) {
+                System.out.println("Student removed successfully.");
+            } else {
+                System.out.println("No student with the given id found.");
+            }
+
+    }
+
+    //-------------------------------Modify Book-------------------------------------
+    public void ModifyBook() {
+        System.out.print(ANSI_BLUE+"Insert Book Title:");
+        String t = scanner.next();
+        for (Book l : LibraryBooks) {
+            if (l != null) {
+                if (t.equals(l.getTitle())) {
+                    l.ModifyBook();
+                }
+            }
+        }
+    }
+
+    //-------------------------------Modify Student-------------------------------------
+    public void ModifyStudent() {
+        System.out.print(ANSI_BLUE+"Insert ID Student:");
+        int I = scanner.nextInt();
+        for (Student s : LibraryStudents) {
+            if (s != null) {
+                if (I == s.getId()) {
+                    s.ModifyStudent();
+                }
+            }
+        }
+    }
+
+    //-------------------------------Add Book From Student-------------------------------------
+    public void addBookForStudent(){
+        System.out.print(ANSI_YELLOW+"Insert ID Student:");
+        int I = scanner.nextInt();
+        System.out.print("Insert Book Title:");
+        String T = scanner.next();
+        for (Student s : LibraryStudents) {
+            if (s != null) {
+                if (I == s.getId()) {
+                    for(Book b : LibraryBooks){
+                        if(b!= null){
+                            if (T.equals(b.getTitle()) && b.getBorrower() == null ) {
+                                s.getBooks().add(b);
+                                b.AddBorrower(s);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 }
 
 
