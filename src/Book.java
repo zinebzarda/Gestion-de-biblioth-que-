@@ -111,6 +111,8 @@ public class Book {
             System.out.print("Borrower ID:");
             // Borrower = scanner.next();
         }
+        LocalDate DatePublication = null;
+
         while (DatePublication == null) {
             try {
                 System.out.print("Date Publication (YYYY-MM-DD): ");
