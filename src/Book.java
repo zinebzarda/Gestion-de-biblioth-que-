@@ -3,6 +3,8 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Book {
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RED = "\u001B[31m";
 
     private String Title;
     private String Writer;
@@ -111,15 +113,13 @@ public class Book {
             System.out.print("Borrower ID:");
             // Borrower = scanner.next();
         }
-        LocalDate DatePublication = null;
-
         while (DatePublication == null) {
             try {
                 System.out.print("Date Publication (YYYY-MM-DD): ");
                 String date = scanner.next();
-                DatePublication = LocalDate.parse(date);
+                this.DatePublication = LocalDate.parse(date);
             } catch (DateTimeParseException e) {
-                System.out.println("Invalid date format. Please enter date in YYYY-MM-DD format.");
+                System.out.println(ANSI_RED+"Invalid date format. Please enter date in YYYY-MM-DD format."+ANSI_YELLOW);
             }
         }
     }

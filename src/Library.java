@@ -22,6 +22,7 @@ public class Library {
 
     //Add Book
     public void addBook() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print(ANSI_YELLOW+"Title :");
         String Title = scanner.next();
         System.out.print("Writer :");
@@ -46,6 +47,7 @@ public class Library {
     //Add Student
 
     public void addStudent() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print(ANSI_YELLOW+"Nom :");
         String Nom = scanner.next();
         System.out.print("Prenom :");
@@ -280,17 +282,13 @@ public class Library {
         System.out.print("Insert Book Title:");
         String T = scanner.next();
         for (Student s : LibraryStudents) {
-            if (s != null) {
-                if (I == s.getId()) {
+            if (s != null && I == s.getId()) {
                     for(Book b : LibraryBooks){
-                        if(b!= null){
-                            if (T.equals(b.getTitle()) && b.getBorrower() == null ) {
+                            if (b!= null && T.equals(b.getTitle()) && b.getBorrower() == null ) {
                                 s.getBooks().add(b);
                                 b.AddBorrower(s);
                             }
-                        }
                     }
-                }
             }
         }
     }
